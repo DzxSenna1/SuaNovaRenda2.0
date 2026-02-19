@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sua Nova Renda 2.0</title>
+    <link rel="icon" type="image/png"
+        href="https://ams3.cdnastron.com.br/modelo-v1-2/mod_preferencias/ext_header-login/cn150150/header-login-8152.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #0f0f0f;
+            color: white;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: 0.3s;
+        }
+
+        header:hover {
+            box-shadow: 0 0 15px #00ff88;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            color: #00ff88;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #00ff88;
+            text-shadow: 0 0 8px #00ff88;
+        }
+
+        section {
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero {
+            padding-top: 140px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .hero p {
+            color: #ccc;
+            font-size: 18px;
+            margin-top: 15px;
+        }
+
+        .video-box {
+            max-width: 900px;
+            margin: 50px auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
+        }
+
+        .video-box iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+            border-radius: 15px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 40px auto;
+        }
+
+        .card {
+            background: #111;
+            padding: 25px;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin: 10px 0 5px;
+        }
+
+        .card p {
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            background: #222;
+        }
+
+        .cta-main {
+            display: inline-block;
+            background: linear-gradient(45deg, #00ff88, #00c853);
+            padding: 18px 40px;
+            font-size: 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: black;
+            font-weight: 800;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        .cta-main:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px #00ff88;
+        }
+
+        footer {
+            padding: 40px 20px;
+            background: #000;
+            color: #aaa;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* Mídia específica */
+        #midia {
+            color: #f97316;
+            padding-bottom: 40px;
+        }
+
+        #midia h2 {
+            font-weight: 700;
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #f97316;
+            text-transform: uppercase;
+        }
+
+        #midia .videos-wrapper,
+        #midia .imgs-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: nowrap;
+            max-width: 1100px;
+            margin: 0 auto 40px;
+        }
+
+        #midia .videos-wrapper iframe {
+            border: none;
+            border-radius: 8px;
+            width: 320px;
+            height: 180px;
+            box-shadow: 0 0 12px rgba(255 151 22 / 0.5);
+        }
+
+        #midia .imgs-wrapper img {
+            border-radius: 6px;
+            width: 320px;
+            height: auto;
+            object-fit: cover;
+            box-shadow: 0 0 12px rgba(255 151 22 / 0.5);
+        }
+
+        /* Feedback videos maiores */
+        #feedback .video-box iframe {
+            height: 320px;
+        }
+
+        /* Sessão preço */
+        #preco {
+            background: #111;
+            padding: 60px 20px;
+            border-radius: 15px;
+            margin: 60px auto;
+            max-width: 800px;
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
+        }
+
+        #preco h2 {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 25px;
+        }
+
+        #preco .valores {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+
+        #preco .valores span.original {
+            text-decoration: line-through;
+            color: #aaa;
+            margin-right: 15px;
+        }
+
+        #preco .valores span.promocional {
+            color: #00ff88;
+            font-weight: 800;
+            font-size: 32px;
+        }
+
+        #preco .cta-main {
+            font-size: 22px;
+            padding: 18px 50px;
+        }
+
+        /* ANIMAÇÃO PULSAR NO BOTÃO DE PREÇO */
+        @keyframes pulsar {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 15px #00ff88;
+            }
+
+            50% {
+                transform: scale(1.1);
+                box-shadow: 0 0 30px #00ff88;
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 15px #00ff88;
+            }
+        }
+
+        #preco .cta-main {
+            animation: pulsar 1.2s infinite;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .video-box iframe {
+                height: 250px;
+            }
+
+            #midia .videos-wrapper,
+            #midia .imgs-wrapper {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            #midia .videos-wrapper iframe,
+            #midia .imgs-wrapper img {
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+            }
+
+            #preco {
+                padding: 40px 15px;
+            }
+
+            #preco .valores {
+                font-size: 20px;
+            }
+
+            #preco .valores span.promocional {
+                font-size: 26px;
+            }
+
+            #preco .cta-main {
+                font-size: 20px;
+                padding: 16px 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">Sua Nova Renda 2.0</div>
+        <nav>
+            <a href="#aprenda">O que você vai aprender</a>
+            <a href="#treinamento">Treinamento</a>
+            <a href="#midia">O que a mídia fala</a>
+            <a href="#preco">Preço</a>
+            <a href="#bonus">Bônus</a>
+            <a href="#professores">Professores</a>
+            <a href="#feedback">Feedback</a>
+        </nav>
+        <a href="https://pay.kiwify.com.br/sUqnazH?afid=ynwU12vQ" class="cta-main">COMECE AGORA</a>
+    </header>
+
+    <section class="hero">
+        <h1>SE VOCÊ NÃO FIZER UMA NOVA RENDA DIGITAL EM 1 MÊS, DEVOLVO SEU DINHEIRO E AINDA TE DOU R$100 NO PIX</h1>
+        <p>SEM PRECISAR APARECER, PELO CELULAR E DE FORMA SIMPLES</p>
+        <div class="video-box">
+            <iframe src="https://www.youtube.com/embed/kq8K_CYZXGU" allowfullscreen></iframe>
+        </div>
+        <a href="https://pay.kiwify.com.br/sUqnazH?afid=ynwU12vQ" class="cta-main">COMECE AGORA</a>
+    </section>
+
+    <section id="aprenda">
+        <h2>O que você vai aprender no curso</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="https://suarendadigitalemcasa.com.br/wp-content/uploads/2024/02/01-1.webp" alt="" />
+                <h3>Saindo do Zero</h3>
+                <p>Comece do absoluto zero sem complicações.</p>
+            </div>
+            <div class="card">
+                <img src="https://suarendadigitalemcasa.com.br/wp-content/uploads/2024/02/02-1.webp" alt="" />
+                <h3>Entendendo o Mercado</h3>
+                <p>Descubra como funciona o mercado digital.</p>
+            </div>
+            <div class="card">
+                <img src="https://suarendadigitalemcasa.com.br/wp-content/uploads/2024/02/03-1.webp" alt="" />
+                <h3>Nova Profissão pelo Celular</h3>
+                <p>Trabalhe de qualquer lugar com o celular.</p>
+            </div>
+            <div class="card">
+                <img src="https://suarendadigitalemcasa.com.br/wp-content/uploads/2024/02/04-1.webp" alt="" />
+                <h3>Primeiro Cliente em 24h</h3>
+                <p>Aprenda a conseguir seu primeiro cliente rapidamente.</p>
+            </div>
+            <div class="card">
+                <img src="https://suarendadigitalemcasa.com.br/wp-content/uploads/2024/02/05.webp" alt="" />
+                <h3>Serviços Digitais</h3>
+                <p>Entenda como vender serviços digitais lucrativos.</p>
+            </div>
+            <div class="card">
+                <img src="https://suarendadigitalemcasa.com.br/wp-content/uploads/2024/02/06.webp" alt="" />
+                <h3>Vendas Diárias</h3>
+                <p>Aprenda a gerar vendas todos os dias.</p>
+            </div>
+        </div>
+        <a href="https://pay.kiwify.com.br/sUqnazH?afid=ynwU12vQ" class="cta-main">COMECE AGORA</a>
+    </section>
+
+    <section id="treinamento">
+        <h2>Com o treinamento você conseguirá</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="https://suarendadigitalemcasa.com.br/wp-content/uploads/2024/02/financeira.webp" alt="" />
+                <h3>Independência financeira</h3>
+            </div>
+            <div class="card">
+                <img src="https://suarendadigitalemcasa.com.br/wp-content/uploads/2024/02/geografica.webp" alt="" />
+                <h3>Trabalhar de qualquer lugar</h3>
+            </div>
+            <div class="card">
+                <img src="https://suarendadigitalemcasa.com.br/wp-content/uploads/2024/02/tempo.webp" alt="" />
+                <h3>Mais tempo livre</h3>
+            </div>
+        </div>
+        <a href="https://pay.kiwify.com.br/sUqnazH?afid=ynwU12vQ" class="cta-main">COMECE AGORA</a>
+    </section>
+
+    <section id="midia">
+        <h2>O QUE A MÍDIA FALA DO MARKETING DIGITAL E DE NÓS?</h2>
+        <div class="videos-wrapper">
+            <iframe src="https://www.youtube.com/embed/q6AJJoEDSsM" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/kxTPQ0wYC-k" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/CBuw-Oyq7tA" allowfullscreen></iframe>
+        </div>
+        <div class="imgs-wrapper">
+            <img src="https://suarendadigitalemcasa.com.br/wp-content/uploads/2024/02/NOTICIA-1-1024x646.webp"
+                alt="Notícia 1" />
+            <img src="https://suarendadigitalemcasa.com.br/wp-content/uploads/2024/02/NOTICIA-2-1024x646.webp"
+                alt="Notícia 2" />
+        </div>
+    </section>
+
+    <!-- NOVA SESSÃO DE PREÇO -->
+    <section id="preco">
+        <h2>Preço Especial do Curso</h2>
+        <div class="valores">
+            <span class="original">R$3.997,00</span>
+            <span class="promocional">12x de R$9,74 ou R$97 à vista</span>
+        </div>
+        <a href="https://pay.kiwify.com.br/sUqnazH?afid=ynwU12vQ" class="cta-main">QUERO ME INSCREVER</a>
+    </section>
+
+    <section id="bonus">
+        <h2>Bônus exclusivos</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="https://suarendadigitalemcasa.com.br/wp-content/uploads/2024/02/mok07.webp" alt="" />
+                <h3>Aulas ao vivo 3x por semana</h3>
+                <p>Participe de aulas semanais e tire todas suas dúvidas diretamente com os professores.</p>
+            </div>
+            <div class="card">
+                <img src="https://suarendadigitalemcasa.com.br/wp-content/uploads/2024/02/01.webp" alt="" />
+                <h3>Como fechar clientes rapidamente</h3>
+                <p>Aprenda técnicas práticas para conquistar clientes e gerar vendas rápidas.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="professores">
+        <h2>Professores</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="https://suarendadigitalemcasa.com.br/wp-content/uploads/2024/02/Thiago-Hora.webp" alt="" />
+                <h3>Thiago Hora</h3>
+            </div>
+            <div class="card">
+                <img src="https://suarendadigitalemcasa.com.br/wp-content/uploads/2024/02/Nathalia-narrima.webp"
+                    alt="" />
+                <h3>Nathalia</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="feedback">
+        <h2>O que os alunos estão falando</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="video-box">
+                    <iframe src="https://www.youtube.com/embed/m2POK9C6MYw" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="card">
+                <div class="video-box">
+                    <iframe src="https://www.youtube.com/embed/94vv40py55I" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="card">
+                <div class="video-box">
+                    <iframe src="https://www.youtube.com/embed/uHZW96gjU2k" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="card">
+                <div class="video-box">
+                    <iframe src="https://www.youtube.com/embed/I8OAvaDnVI4" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        <a href="https://pay.kiwify.com.br/sUqnazH?afid=ynwU12vQ" class="cta-main">COMECE AGORA</a>
+    </section>
+
+    <footer>
+        Thiago Hora © Todos os direitos reservados
+    </footer>
+
+</body>
+
+</html>
